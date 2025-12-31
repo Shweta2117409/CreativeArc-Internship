@@ -1,0 +1,15 @@
+FRUIT, PRICE, QUANTITY
+
+apple,80,8
+banana,60,12
+orange,100,5
+grape,120,20
+mango,150,6
+kiwi,200,4
+peach,90,10
+pear,,4
+plum,110,NA
+cherry,130,15
+melon,NA,7
+apple,,9
+NA,60,NA

@@ -1,0 +1,13 @@
+Column Analyzed: PRICE
+Total Records: 13
+Missing PRICE Values: 3
+Mean PRICE: 110.00
+Median PRICE: 105.00
+Standard Deviation: 40.74
+
+Top 5 Fruits:
+apple - 2
+banana - 1
+orange - 1
+grape - 1
+mango - 1
