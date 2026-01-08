@@ -1,0 +1,31 @@
+-TASK 3: OUTLIERS – THINK BEFORE TOUCHING
+
+For outlier analysis, numeric columns were first identified and examined
+using the IQR method. Among these, the Rating column was selected for
+decision-making.
+
+Although outliers were detected in the Rating column, they were
+intentionally kept rather than removed or capped. Extremely high or low
+ratings often represent genuine user experiences, such as highly
+successful apps with exceptional feedback or poorly performing apps
+with negative reviews. Treating these values as errors would remove
+important real-world signals from the data.
+
+Therefore, restricting outlier handling to a single, carefully chosen
+column helps balance data robustness with real-world realism.
+
+-TASK 5: EXPLORATORY DATA ANALYSIS INSIGHTS
+
+The exploratory analysis reveals that most applications on the Play Store
+receive relatively high ratings, typically between 4.0 and 4.5, indicating
+generally positive user feedback across the platform. Extremely low-rated
+apps are uncommon.
+
+Popularity, measured through install counts, does not directly guarantee
+higher ratings. While highly installed apps often maintain stable ratings,
+newer or less popular apps show greater variability in user feedback.
+
+Pricing also does not appear to be a strong determinant of user ratings.
+Most apps are free, and paid apps do not consistently outperform free apps
+in terms of ratings. This implies that app quality and user satisfaction
+are driven more by functionality and usability rather than cost.
