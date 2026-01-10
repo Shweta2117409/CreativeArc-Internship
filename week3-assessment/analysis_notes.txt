@@ -1,0 +1,59 @@
+1. Why does the loss curve decrease over epochs?
+-The loss curve decreases over epochs because the model is learning from its mistakes using gradient descent.
+-Initially, the values of weight (w) and bias (b) are set to zero, which results in very poor predictions and high loss.
+-During each epoch, the model computes the gradient of the loss with respect to w and b and updates them in the direction that reduces the loss.
+-As training progresses, the predictions become closer to the actual salary values, which reduces the difference between predicted and true values.
+-Over time, the updates become smaller because the model approaches the optimal parameters. This causes the loss curve to gradually flatten, indicating convergence.
+
+
+2. What would happen if the learning rate = 0.5?
+-If the learning rate is set to a very high value like 0.5, the model updates the parameters too aggressively.
+-Instead of moving smoothly toward the minimum loss, the parameters overshoot the optimal point.
+-This often results in oscillations in the loss curve or even divergence, where the loss increases instead of decreasing.
+-This behavior can be clearly observed in the loss vs epoch plot, where the curve becomes unstable or zig-zag in nature.
+-A high learning rate makes training fast but unreliable, which is why choosing an appropriate learning rate is critical for stable learning.
+
+
+3. What does a flat loss curve indicate?
+-A flat loss curve indicates that the model is no longer learning significantly.
+-This usually happens when the gradient becomes very small and parameter updates no longer cause noticeable improvement in predictions.
+-It may mean that the model has reached convergence and found parameters close to the optimal solution.
+-If the curve is flat from the beginning, it may suggest that the learning rate is too small, causing extremely slow learning.
+-Therefore, a flat curve must be interpreted carefully in the context of training behavior.
+
+
+Learning Rate Experiment Analysis
+
+1. Which learning rate worked best and why?
+-Among the tested learning rates (0.1, 0.01, and 0.001), 0.01 worked best. It provided a good balance between speed and stability.
+-The loss decreased smoothly and consistently over epochs, showing stable convergence.
+-The model learned efficiently without oscillations or divergence.
+-This learning rate allowed gradient descent to take reasonably sized steps toward the minimum loss, ensuring both accuracy and reliability.
+
+
+2. Which learning rate failed and how was failure identified?
+-The learning rate 0.1 showed unstable behavior.
+-Although the loss decreased quickly at the beginning, it often oscillated or behaved inconsistently.
+-This instability indicated that the step size was too large, causing the model to overshoot the optimal solution.
+-On the other hand, 0.001 did not fail but learned very slowly.
+-The loss decreased very gradually and remained relatively high even after 1000 epochs.
+-This showed that the learning rate was too small for efficient training.
+-The failure and inefficiency were identified directly through the loss vs epoch plots.
+
+THINKING TASK
+
+Q1: If we train for 10,000 epochs instead of 1,000, will the model always improve? Why or why not?
+-Training for more epochs does not guarantee that the model will always improve.
+-Initially, increasing the number of epochs helps the model reduce loss as it learns better parameters.
+-However, after a certain point, the model reaches convergence, where further training produces negligible improvement because the gradients become very small.
+-Additionally, more epochs increase computational cost without meaningful benefit.
+-Therefore, the number of epochs should be chosen based on convergence behavior rather than blindly increasing it.
+
+
+Q2: Why is gradient descent preferred over directly trying all possible values of w and b?
+-Directly trying all possible values of w and b is computationally infeasible because the parameter space is continuous and extremely large.
+-Exhaustive search would require infinite combinations, making it impractical even for simple models.
+-Gradient descent provides an efficient alternative by using mathematical gradients to determine the direction in which the loss decreases the fastest.
+-Instead of checking every possibility, it intelligently updates parameters step by step toward the optimal solution.
+-This makes gradient descent scalable, efficient, and suitable for large datasets and complex models.
+
