@@ -1,0 +1,39 @@
+TASK 2 – BIAS–VARIANCE DIAGNOSIS
+
+1. High Variance Model:
+The Decision Tree without a depth limit shows high variance. This was identified by observing very high training accuracy combined with significantly lower validation accuracy. The large accuracy gap indicates that the model is memorizing training data rather than learning general patterns.
+
+2. High Bias Model:
+KNN with a large value of K demonstrates high bias. Both training and validation accuracy are relatively low and close to each other, indicating that the model is too simple and unable to capture the underlying structure of the data.
+
+3. Random Forest Variance Reduction:
+Random Forest reduces variance by averaging predictions from multiple decision trees trained on different bootstrap samples and feature subsets. In practice, this results in a smaller train–validation accuracy gap compared to a single deep decision tree, improving generalization.
+
+TASK 3 – CONTROLLED HYPERPARAMETER EXPERIMENT
+
+Decision Tree (max_depth):
+- Underfitting occurs at very low depth values where both training and validation accuracy are low.
+- Overfitting starts at higher depth values when training accuracy increases sharply while validation accuracy stagnates or decreases.
+- This transition is confirmed by accuracy-vs-depth plots and the widening accuracy gap.
+
+KNN (K value):
+- Small K values lead to overfitting, as the model becomes sensitive to noise.
+- Large K values cause underfitting due to excessive smoothing.
+- The optimal K lies where validation accuracy peaks before declining.
+
+Random Forest (n_estimators):
+- Increasing the number of trees improves validation accuracy initially.
+- Performance stabilizes after a certain point, indicating diminishing returns.
+- No strong overfitting is observed, confirming Random Forest’s robustness.
+
+TASK 4 – K-MEANS (UNSUPERVISED LEARNING)
+
+1. Inertia Behavior:
+Inertia always decreases as K increases because clusters become smaller and points are closer to their centroids.
+
+2. Silhouette Score Importance:
+Silhouette score considers both intra-cluster cohesion and inter-cluster separation, making it more informative than inertia alone.
+
+3. K-Means Failure Cases:
+K-Means may fail on this dataset due to non-spherical clusters, overlapping classes, and sensitivity to feature scaling and initialization.
+
