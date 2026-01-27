@@ -1,0 +1,57 @@
+## Part A – Data Understanding & Baseline
+
+The Heart Disease dataset was used. A Logistic Regression model with proper preprocessing
+(imputation, scaling, and categorical encoding) was trained as a baseline.
+
+Why the baseline is insufficient for production:
+- Uses default model family without feature engineering.
+- No hyperparameter tuning performed.
+- Performance evaluated on a single validation split.
+
+
+PART B – FEATURE ENGINEERING
+
+Engineered Features:
+1. age_squared – captures non-linear age effects on heart disease risk.
+2. chol_high – binary indicator for clinically high cholesterol.
+3. exercise_risk – interaction between exercise-induced angina and ST depression.
+4. heart_stress – interaction between resting blood pressure and max heart rate.
+
+Ablation Study:
+Validation accuracy improves as engineered features are added incrementally.
+The full engineered feature set achieves the best performance, indicating that
+non-linear and interaction-based features capture additional signal.
+
+Feature Importance:
+Permutation importance confirms that engineered interaction features contribute
+significantly to predictive performance.
+
+PART C – HYPERPARAMETER TUNING
+
+Manual Experiment:
+The regularization parameter C was varied to study bias–variance behavior.
+Low C values underfit due to strong regularization, while higher values increase variance.
+
+Focused Search:
+Based on manual results, a narrow C range was selected.
+GridSearchCV with cross-validation identified the optimal parameter efficiently.
+
+PART D – CROSS-VALIDATION & NESTED CV
+
+Stratified K-Fold CV:
+5-fold stratified cross-validation was used to ensure class balance across folds.
+The low standard deviation across folds indicates stable model performance.
+
+Nested Cross-Validation:
+Nested CV was performed with an inner loop for hyperparameter tuning and an outer
+loop for unbiased performance estimation. This avoids data leakage and provides
+a realistic estimate of generalization performance.
+
+PART E – MODEL PERSISTENCE & REPRODUCIBILITY
+
+The trained pipeline was saved using joblib and reloaded successfully.
+Predictions before saving and after loading were identical, confirming correct
+model persistence.
+
+With all random states fixed, retraining the pipeline produced identical
+predictions, demonstrating full reproducibility.
